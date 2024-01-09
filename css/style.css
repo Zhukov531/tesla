@@ -1,20 +1,23 @@
-html{
+html {
     background: url("../img/bg.gif");
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 }
+
 .blur {
     background: rgba(0, 0, 0, 0.038);
-    backdrop-filter: blur(0px); 
+    backdrop-filter: blur(0px);
     height: 100vh;
     width: 100vw;
 }
-body{
+
+body {
     margin: 0;
     padding: 0;
-    font-family: Montserrat;  
+    font-family: Montserrat;
 }
+
 .body-content {
     height: 100vh;
     display: flex;
@@ -22,13 +25,15 @@ body{
     justify-content: center;
     flex-direction: column;
 }
-.block{
+
+.block {
     background: url(../img/lg4.gif);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 15px;
 }
+
 .block-content {
     padding: 25px 50px;
     background-color: rgba(0, 0, 0, 0.383);
@@ -60,12 +65,13 @@ body{
 
 }
 
-.block-1link img{
+.block-1link img {
     width: 44px;
     padding: 5px;
 
 }
-.links-btn{
+
+.links-btn {
     margin-top: 20px;
     padding: 5px 25px;
     background-color: rgba(193, 193, 193, 0.197);
@@ -79,26 +85,85 @@ body{
 
 button {
     margin-top: 20px;
-  padding: 5px 25px;
-  border-radius: 15px;
-  border-style: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
+    padding: 5px 25px;
+    border-radius: 15px;
+    border-style: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #imageContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.681);
+    padding: 10px 15px;
+    border-radius: 15px;
 }
 
 #imageContainer img {
-  /* width: 32px; */
-  height: 32px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  padding: 0 5px;
+    /* width: 32px; */
+    height: 32px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 0 5px;
 }
+
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300");
+
+
+.block,
+#imageContainer {
+    --border-width: 1px;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border-radius: var(--border-width); */
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: calc(-1 * var(--border-width));
+        left: calc(-1 * var(--border-width));
+        z-index: -1;
+        width: calc(100% + var(--border-width) * 2);
+        height: calc(100% + var(--border-width) * 2);
+        background: linear-gradient(60deg,
+                hsl(0, 0%, 0%),
+                hsl(45, 100%, 43%),
+                hsl(0, 0%, 0%),
+                hsl(45, 100%, 43%),
+                hsl(0, 0%, 0%),
+                hsl(0, 0%, 0%),
+                hsl(45, 100%, 43%),
+                hsl(0, 0%, 0%));
+        background-size: 300% 300%;
+        background-position: 0 50%;
+        border-radius: 15px;
+        animation: moveGradient 6s alternate infinite;
+    }
+}
+
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* background: linear-gradient(60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)); */
